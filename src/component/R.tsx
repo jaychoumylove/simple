@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, Component } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router';
 
 interface OwnProps extends RouteComponentProps {
@@ -13,7 +13,7 @@ const Counter:FunctionComponent<OwnProps> = (initState) => {
     return <>
         <p>Clicks: {clicks}</p>
         <button onClick={() => setClicks(clicks+1)}>+</button>
-        <button onClick={() => setClicks(clicks-1)}>+</button>
+        <button onClick={() => setClicks(clicks-1)}>-</button>
     </>
 }
 
