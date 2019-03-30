@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, CancelToken, AxiosResponse, AxiosError } from 'axios';
 import * as conf from './config';
-import { _Defaiults, _ReponseError, _ResponseData } from '../types/axios';
+import { _Defaiults, _ReponseError, _ResponseData, ECONNABORTED } from '../types/axios';
 
 const handleTimeOut = (request:AxiosRequestConfig) => console.info('request is timeout!', request);
 
@@ -51,7 +51,7 @@ const _handleResponseError = (error: _ReponseError) => {
 		return data;
 	} else {
 		switch (error.code) {
-			case 'ECONNABORTED':
+			case ECONNABORTED:
 				config.onTimeOut(request);
 				break;
 			default:
