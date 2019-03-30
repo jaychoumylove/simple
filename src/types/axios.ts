@@ -5,7 +5,7 @@ export interface _Defaiults extends AxiosRequestConfig {
     onTimeOut: Function
 }
 
-export const ECONNABORTED:String = 'ECONNABORTED';
+export const ECONNABORTED:string = 'ECONNABORTED';
 
 export type _Code = 'ECONNABORTED';
 
