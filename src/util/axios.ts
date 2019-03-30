@@ -1,19 +1,11 @@
 import axios, { AxiosRequestConfig, CancelToken, AxiosResponse, AxiosError } from 'axios';
 import * as conf from './config';
-
-interface _Defaiults extends AxiosRequestConfig {
-    loading: Boolean
-    onTimeOut: Function
-}
-
-const ECONNABORTED = 'ECONNABORTED';
-
-type _Code = 'ECONNABORTED';
+import { _Defaiults, _ReponseError, _ResponseData } from '../types/axios';
 
 const handleTimeOut = (request:AxiosRequestConfig) => console.info('request is timeout!', request);
 
 const cancelToken: CancelToken = {
-    promise: new Promise(cancel => console.info('you canceled last request.')),
+    promise: new Promise(cancel => console.info('you canceled last request. calcel ', cancel)),
     throwIfRequested: () => console.info('cancel failed for requested!')
 }
 
@@ -25,22 +17,8 @@ const defaults: _Defaiults = {
     withCredentials: true,
     // headers: {}, // using default AxiosTransformer for data and headers
     validateStatus: (status: Number) => status >= 200 && status < 300,
-    maxRedirects: 5,
+    maxRedirects: conf.redirects,
     cancelToken: cancelToken
-}
-
-interface _ResponseData {
-	error_code: Number
-	data: Readonly<Object | null>
-	message: String
-	requesr_url: String
-}
-
-interface _ReponseError extends AxiosError {
-	request: AxiosRequestConfig
-	response: AxiosResponse
-	code: _Code
-	config: _Defaiults
 }
 
 const _handleRequest = async (request: AxiosRequestConfig) => {
@@ -73,11 +51,11 @@ const _handleResponseError = (error: _ReponseError) => {
 		return data;
 	} else {
 		switch (error.code) {
-			case ECONNABORTED:
+			case 'ECONNABORTED':
 				config.onTimeOut(request);
 				break;
 			default:
-				console.log('fontend mistake in code ', error.code);
+				console.log('fontend maked mistake in code ', error.code);
 				Promise.reject(error);
 				break;
 		}
