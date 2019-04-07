@@ -33,6 +33,7 @@ const Counter: FunctionComponent<OwnProps> = (initState: OwnProps)=> {
         <p>token: {state.token}</p>
         <p>auth: {state.auth ? 'true': 'false'}</p>
         <button onClick={() => _handelState()}>handleState</button>
+        <button onClick={()=> initState.history.push('/page')}>to Page</button>
     </>
 }
 
