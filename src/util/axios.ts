@@ -15,7 +15,7 @@ const defaults: _Defaiults = {
     baseURL: conf.baseUrl + conf.version,
     timeout: conf.timeout,
     withCredentials: true,
-    // headers: {}, // using default AxiosTransformer for data and headers
+    // headers: {}, // using default axiosTransformer for data and headers
     validateStatus: (status: Number) => status >= 200 && status < 300,
     maxRedirects: conf.redirects,
     cancelToken: cancelToken

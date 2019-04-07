@@ -5,10 +5,15 @@ interface OwnProps extends RouteComponentProps {
     initial: number
 }
 
-const Counter:FunctionComponent<OwnProps> = (initState) => {
+interface InitState {
+    token: String,
+    auth: Boolean
+}
+
+const Counter: FunctionComponent<OwnProps> = (initState: OwnProps)=> {
     const [clicks, setClicks] = useState(initState.initial);
-    const InitState:{token: String,auth: Boolean} = { token: 'no', auth: false };
-    const [state, handelState] = useState(InitState);
+    const _state:InitState = { token: 'no', auth: false };
+    const [state, handelState] = useState(_state);
 
     function _handelState() {
         const token = state.auth ? 'yes': 'no';
