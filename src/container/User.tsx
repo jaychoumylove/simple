@@ -5,12 +5,13 @@ import { logout, login } from '../redux/token';
 import { TOEKENDATA } from '../types/actions/token';
 import ROOTDATA from '../types/reducer';
 import Counter from '../component/R';
+import { RouteComponentProps } from 'react-router';
 
-interface OwnProps {
-
+interface OwnProps extends RouteComponentProps {
+	
 }
 
-type Props = State & Func;
+type Props = State & Func
 
 interface State {
   	state: TOEKENDATA
@@ -21,12 +22,8 @@ interface Func {
 	login: Function
 }
 
-class App extends Component<Props> {
-	public constructor(props: Props) {
-		super(props);
-		this.state = props.state;
-		console.log(props);
-	}
+class App extends Component<RouteComponentProps<any> & Props> {
+	readonly state = this.props.state;
 
 	public render() {
 		return (
@@ -54,6 +51,11 @@ class App extends Component<Props> {
 						type='button' 
 						onClick={() => this.props.logout()}
 					>logout</button>
+					<button 
+						className="App-link"
+						type='button' 
+						onClick={() => this.props.history.push('/page')}
+					>go page</button>
 					<Counter initial={0} />
 				</header>
 			</div>
