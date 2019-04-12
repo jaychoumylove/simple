@@ -6,10 +6,8 @@ import { TOEKENDATA } from '../types/actions/token';
 import ROOTDATA from '../types/reducer';
 import Counter from '../component/R';
 import { RouteComponentProps } from 'react-router';
-
-interface OwnProps extends RouteComponentProps {
-	
-}
+import Axios from 'axios';
+// import _axios from '../util/axios';
 
 type Props = State & Func
 
@@ -22,8 +20,21 @@ interface Func {
 	login: Function
 }
 
-class App extends Component<RouteComponentProps<any> & Props> {
+class App extends Component<RouteComponentProps & Props> {
 	readonly state = this.props.state;
+
+	public async login () {
+		console.info('loading');
+		const mobile = '13263995262';
+		const password = '123456';
+		const res = await Axios.post('token/user', {
+			mobile,
+			password,
+			is_third : ''
+		});
+
+		this.props.login(mobile,password);
+	}
 
 	public render() {
 		return (
@@ -44,7 +55,7 @@ class App extends Component<RouteComponentProps<any> & Props> {
 					<button 
 						className="App-link"
 						type='button' 
-						onClick={() => this.props.login('11','22')}
+						onClick={() => this.login()}
 					>Login</button>
 					<button 
 						className="App-link"

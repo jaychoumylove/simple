@@ -5,6 +5,7 @@ import { store } from './redux/store';
 import Home from './container/Home';
 import User from './container/User';
 import Page from './container/Page';
+import './util/axios';
 import './App.css';
 
 class App extends Component {
