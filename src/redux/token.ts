@@ -1,13 +1,13 @@
 import { TOEKENDATA, LOGIN, LOGOUT, TOKENACTION, LOGOUTACTION, LOGINACTION } from "../types/actions/token";
-import axios from 'axios';
+// import * as axios from "axios";
 import { ThunkAction, ThunkDispatch } from "redux-thunk";
 
-const defaultState:TOEKENDATA = {
+const defaultState: TOEKENDATA = {
     token: "",
 };
 
-export function token(state:TOEKENDATA = defaultState, action: TOKENACTION):TOEKENDATA  {
-    switch(action.type) {
+export function token(state: TOEKENDATA = defaultState, action: TOKENACTION):TOEKENDATA  {
+    switch (action.type) {
         case LOGIN:
             return action.payload;
         case LOGOUT:
@@ -17,17 +17,17 @@ export function token(state:TOEKENDATA = defaultState, action: TOKENACTION):TOEK
     }
 }
 
-export const login = (name: String, password: String): ThunkAction<Promise<void>, {}, {}, LOGINACTION> => {
+export const login = (name: string, password: string): ThunkAction<Promise<void>, {}, {}, LOGINACTION> => {
     return async (dispatch: ThunkDispatch<{}, {}, LOGINACTION>): Promise<void> => {
         // delay(3000);
         return new Promise<void>((resolve) => {
             setTimeout(() => {
-                dispatch({ type: LOGIN, payload: { token: 'ok' }})
+                dispatch({ type: LOGIN, payload: { token: "ok" }})
             }, 3000);
         })
     }
 }
 
 export function logout(): LOGOUTACTION {
-    return { type: LOGOUT, payload: { token: '' }};
+    return { type: LOGOUT, payload: { token: "" }};
 }

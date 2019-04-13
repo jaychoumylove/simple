@@ -7,11 +7,11 @@ const version: string = 'v1/';
 const timeout: number = 7000;
 const redirects: number = 3;
 
-export default { 
-    baseUrl, 
-    version, 
+export default {
+    baseUrl,
+    version,
     timeout,
-    redirects, 
-    host, 
-    port 
+    redirects,
+    host,
+    port,
 };
