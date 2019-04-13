@@ -40,11 +40,12 @@ const _handleResponseError = (error: _ReponseError) => {
 	}
 }
 
-axios.defaults.baseURL = conf.baseUrl + conf.version;
+// axios.defaults.baseURL = conf.baseUrl + conf.version;
+axios.defaults.baseURL = conf.host + ':' + conf.port + '/';
 axios.defaults.timeout = conf.timeout;
 // axios.defaults.cancelToken = cancel; // It's not necessary for default。
 axios.defaults.validateStatus = (status: Number) => status >= 200 && status < 300;
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 axios.defaults.maxRedirects = conf.redirects;
 axios.interceptors.request.use(_handleRequest,_handleRequestError);
 axios.interceptors.response.use(_handleResponse,_handleResponseError);

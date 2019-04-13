@@ -25,15 +25,21 @@ class App extends Component<RouteComponentProps & Props> {
 
 	public async login () {
 		console.info('loading');
-		const mobile = '13263995262';
-		const password = '123456';
-		const res = await Axios.post('token/user', {
-			mobile,
-			password,
-			is_third : ''
+		// const mobile = '13263995262';
+		// const password = '123456';
+		// const res = await Axios.post('token/user', {
+		// 	mobile,
+		// 	password,
+		// 	is_third : ''
+		// });
+		const user = 'react';
+		const pwd  = 'react';
+		await Axios.post('user/login', {
+			user,
+			pwd,
 		});
 
-		this.props.login(mobile,password);
+		// this.props.login(mobile,password);
 	}
 
 	public render() {
