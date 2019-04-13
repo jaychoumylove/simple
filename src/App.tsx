@@ -9,19 +9,19 @@ import './util/axios';
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <BrowserRouter>
-          <Switch>
-            <Route path='/user' component={User} />
-            <Route path='/page' component={Page} />
-            <Route component={Home} />
-          </Switch>
-        </BrowserRouter>
-      </Provider>
-    );
-  }
+	render() {
+		return (
+        <Provider store={store}>
+            <BrowserRouter>
+                <Switch>
+                    <Route path="/user" component={User} />
+                    <Route path="/page" component={Page} />
+                    <Route component={Home} />
+                </Switch>
+            </BrowserRouter>
+        </Provider>
+		);
+	}
 }
 
 export default App;
