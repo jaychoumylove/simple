@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ComponentType, Component, useEffect } from 'react';
+import React, { FunctionComponent, ComponentType, useEffect, Component } from 'react';
 
 interface Props {
     backHandle?: Function;
@@ -12,12 +12,10 @@ const BackHandle = (WrappedComponent: ComponentType)=> {
     //     }
 
     //     componentDidMount() {
-    //         console.info('did mount');
     //         window.addEventListener('popstate', this.backHandler);
     //     }
 
     //     componentWillUnmount() {
-    //         console.info('will unmount');
     //         window.removeEventListener('popstate', this.backHandler);
     //     }
 
@@ -32,9 +30,7 @@ const BackHandle = (WrappedComponent: ComponentType)=> {
     const BackHandleComponent: FunctionComponent<Props> = () => {
         useEffect(()=> {
             window.addEventListener('popstate', backHandler);
-            console.info('effect');
             return () => {
-                console.info('clean up');
                 window.removeEventListener('popstate', backHandler);
             }
         })
