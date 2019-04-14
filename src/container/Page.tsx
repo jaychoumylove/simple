@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import BackHandle from '../component/hoc/Hoc';
+import { RouteComponentProps } from 'react-router';
 
-class App extends Component {
+class Page extends Component<RouteComponentProps> {
 	render() {
 		return (
 			<div className="App">
@@ -19,10 +20,23 @@ class App extends Component {
 					>
 						Learn React page
 					</a>
+					<a
+						className="App-link"
+						onClick={()=> this.props.history.push('/')}
+					>
+						go Home
+					</a>
+					<a
+						className="App-link"
+						onClick={()=> this.props.history.push('/user')}
+					>
+						go User
+					</a>
 				</header>
 			</div>
 		);
 	}
 }
 
-export default BackHandle(App);
+export default BackHandle(Page);
+// export default Page;

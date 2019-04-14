@@ -1,10 +1,10 @@
-import React, { FunctionComponent, ComponentType, useEffect, Component } from 'react';
+import React, { FunctionComponent, ComponentType, useEffect, Component, ComponentClass } from 'react';
 
 interface Props {
     backHandle?: Function;
 }
 
-const BackHandle = (WrappedComponent: ComponentType)=> {
+const BackHandle = (WrappedComponent: any)=> {
     // return class BackHandleComponent extends Component<Props> {
     //     constructor(props: Props) {
     //         super(props);
@@ -27,7 +27,7 @@ const BackHandle = (WrappedComponent: ComponentType)=> {
     //         return <WrappedComponent />
     //     }
     // }
-    const BackHandleComponent: FunctionComponent<Props> = () => {
+    const BackHandleComponent: FunctionComponent<Props> = (props) => {
         useEffect(()=> {
             window.addEventListener('popstate', backHandler);
             return () => {
@@ -39,7 +39,7 @@ const BackHandle = (WrappedComponent: ComponentType)=> {
             console.info('handler back');
         }
 
-        return <WrappedComponent />
+        return <WrappedComponent {...props} />
     }
 
     return BackHandleComponent;
