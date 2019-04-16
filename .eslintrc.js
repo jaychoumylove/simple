@@ -89,23 +89,6 @@ module.exports = {
         'no-const-assign': 'error',
         // 如果一个变量不会被重新赋值，最好使用const进行声明。
         'prefer-const': 'error',
-        // 不允许使用行内样式
-        "react-native/no-inline-styles": 2,
-        // 强制类型后面要有一个","
-        "flowtype/delimiter-dangle": [
-            2,
-            "only-multiline"
-        ],
-        // 在 : 后强制加空格
-        "flowtype/space-after-type-colon": [
-            2,
-            "always"
-        ],
-        // 在 | & 符号中,强制加空格
-        "flowtype/union-intersection-spacing": [
-            2,
-            "always"
-        ],
         "no-extra-boolean-cast": 0,
         "no-useless-computed-key": 0,
     }

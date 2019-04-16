@@ -3,25 +3,6 @@ import logo from '../logo.svg';
 import { RouteComponentProps } from 'react-router';
 
 class App extends Component<RouteComponentProps> {
-
-	constructor(props: RouteComponentProps) {
-		super(props);
-		this.handleOnUrlChange = this.handleOnUrlChange.bind(this);
-	}
-
-	componentDidMount() {
-		window.addEventListener('popstate', this.handleOnUrlChange);
-	}
-	componentWillUnmount() {
-		console.info('willunmount')
-		window.removeEventListener('popstate', this.handleOnUrlChange)
-	}
-
-	handleOnUrlChange(e: any) {
-		// alert('hello');
-		console.info(document.URL);
-		console.log(e);
-	}
 	render() {
 		return (
 			<div className="App">

@@ -16,8 +16,8 @@ interface State {
 }
 
 interface Func {
-	logout: Function
-	login: Function
+  	logout: Function
+  	login: Function
 }
 
 class App extends Component<RouteComponentProps & Props> {
@@ -58,19 +58,19 @@ class App extends Component<RouteComponentProps & Props> {
 					>`
 						Learn React user
 					</a>
-					<button 
+					<button
 						className="App-link"
-						type='button' 
+						type='button'
 						onClick={() => this.login()}
 					>Login</button>
-					<button 
+					<button
 						className="App-link"
-						type='button' 
+						type='button'
 						onClick={() => this.props.logout()}
 					>logout</button>
-					<button 
+					<button
 						className="App-link"
-						type='button' 
+						type='button'
 						onClick={() => this.props.history.push('/page')}
 					>go page</button>
 					<Counter initial={0} />

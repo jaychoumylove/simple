@@ -3,7 +3,7 @@ import logo from '../logo.svg';
 import BackHandle from '../component/hoc/Hoc';
 import { RouteComponentProps } from 'react-router';
 
-class Page extends Component<RouteComponentProps> {
+export default class Page extends Component<RouteComponentProps> {
 	render() {
 		return (
 			<div className="App">
@@ -37,6 +37,3 @@ class Page extends Component<RouteComponentProps> {
 		);
 	}
 }
-
-export default BackHandle(Page);
-// export default Page;

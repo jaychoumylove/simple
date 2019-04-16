@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ComponentType, useEffect, Component, ComponentClass } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 
 interface Props {
     backHandle?: Function;

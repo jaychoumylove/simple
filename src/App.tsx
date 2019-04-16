@@ -7,6 +7,7 @@ import User from './container/User';
 import Page from './container/Page';
 import './util/axios';
 import './App.css';
+import Test from './container/Test';
 
 class App extends Component {
 	render() {
@@ -16,6 +17,7 @@ class App extends Component {
                 <Switch>
                     <Route path="/user" component={User} />
                     <Route path="/page" component={Page} />
+                    <Route path="/test" component={Test} />
                     <Route component={Home} />
                 </Switch>
             </BrowserRouter>
