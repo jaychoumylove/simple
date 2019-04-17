@@ -12,16 +12,16 @@ import Test from './container/Test';
 class App extends Component {
 	render() {
 		return (
-        <Provider store={store}>
-            <BrowserRouter>
-                <Switch>
-                    <Route path="/user" component={User} />
-                    <Route path="/page" component={Page} />
-                    <Route path="/test" component={Test} />
-                    <Route component={Home} />
-                </Switch>
-            </BrowserRouter>
-        </Provider>
+			<Provider store={store}>
+				<BrowserRouter>
+					<Switch>
+						<Route path="/user" component={User} />
+						<Route path="/page" component={Page} />
+						<Route path="/test" component={Test} />
+						<Route component={Home} />
+					</Switch>
+				</BrowserRouter>
+			</Provider>
 		);
 	}
 }

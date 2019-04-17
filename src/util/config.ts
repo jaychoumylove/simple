@@ -8,10 +8,10 @@ const timeout: number = 7000;
 const redirects: number = 3;
 
 export default {
-    baseUrl,
-    version,
-    timeout,
-    redirects,
-    host,
-    port,
+	baseUrl,
+	version,
+	timeout,
+	redirects,
+	host,
+	port,
 };

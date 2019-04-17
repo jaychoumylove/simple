@@ -21,13 +21,13 @@ class App extends Component<RouteComponentProps> {
 					</a>
 					<a
 						className="App-link"
-						onClick={()=> this.props.history.push('/page')}
+						onClick={() => this.props.history.push('/page')}
 					>
 						go page
 					</a>
 					<a
 						className="App-link"
-						onClick={()=> this.props.history.push('/user')}
+						onClick={() => this.props.history.push('/user')}
 					>
 						go User
 					</a>

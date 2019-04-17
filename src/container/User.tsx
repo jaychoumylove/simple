@@ -12,18 +12,18 @@ import Axios from 'axios';
 type Props = State & Func
 
 interface State {
-  	state: TOEKENDATA
+  	state: TOEKENDATA;
 }
 
 interface Func {
-  	logout: Function
-  	login: Function
+  	logout: Function;
+  	login: Function;
 }
 
 class App extends Component<RouteComponentProps & Props> {
 	readonly state = this.props.state;
 
-	public async login () {
+	public async login() {
 		console.info('loading');
 		// const mobile = '13263995262';
 		// const password = '123456';
@@ -60,17 +60,17 @@ class App extends Component<RouteComponentProps & Props> {
 					</a>
 					<button
 						className="App-link"
-						type='button'
+						type="button"
 						onClick={() => this.login()}
 					>Login</button>
 					<button
 						className="App-link"
-						type='button'
+						type="button"
 						onClick={() => this.props.logout()}
 					>logout</button>
 					<button
 						className="App-link"
-						type='button'
+						type="button"
 						onClick={() => this.props.history.push('/page')}
 					>go page</button>
 					<Counter initial={0} />
@@ -81,8 +81,8 @@ class App extends Component<RouteComponentProps & Props> {
 }
 
 export default connect(
-    (state: ROOTDATA): State => {
-        return { state: state.token };
-    },
-    { login, logout }
-)(App)
+	(state: ROOTDATA): State => {
+		return { state: state.token };
+	},
+	{ login, logout }
+)(App);

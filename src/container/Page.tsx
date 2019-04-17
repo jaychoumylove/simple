@@ -22,13 +22,13 @@ export default class Page extends Component<RouteComponentProps> {
 					</a>
 					<a
 						className="App-link"
-						onClick={()=> this.props.history.push('/')}
+						onClick={() => this.props.history.push('/')}
 					>
 						go Home
 					</a>
 					<a
 						className="App-link"
-						onClick={()=> this.props.history.push('/user')}
+						onClick={() => this.props.history.push('/user')}
 					>
 						go User
 					</a>
