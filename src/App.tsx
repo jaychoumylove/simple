@@ -6,8 +6,8 @@ import Home from './container/Home';
 import User from './container/User';
 import Page from './container/Page';
 import './util/axios';
-import './App.css';
 import Test from './container/Test';
+import Zindex from './container/Zindex';
 
 class App extends Component {
 	render() {
@@ -18,6 +18,7 @@ class App extends Component {
 						<Route path="/user" component={User} />
 						<Route path="/page" component={Page} />
 						<Route path="/test" component={Test} />
+						<Route path="/zindex" component={Zindex} />
 						<Route component={Home} />
 					</Switch>
 				</BrowserRouter>

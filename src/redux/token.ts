@@ -8,12 +8,12 @@ const defaultState: TOEKENDATA = {
 
 export function token(state: TOEKENDATA = defaultState, action: TOKENACTION): TOEKENDATA {
 	switch (action.type) {
-	case LOGIN:
-		return action.payload;
-	case LOGOUT:
-		return defaultState;
-	default:
-		return state;
+		case LOGIN:
+			return action.payload;
+		case LOGOUT:
+			return defaultState;
+		default:
+			return state;
 	}
 }
 
