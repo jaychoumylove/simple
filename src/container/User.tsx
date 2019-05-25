@@ -7,9 +7,8 @@ import ROOTDATA from '../types/reducer';
 import Counter from '../component/R';
 import { RouteComponentProps } from 'react-router';
 import Axios from 'axios';
-// import _axios from '../util/axios';
 
-type Props = State & Func
+type ownProps = State & Func
 
 interface State {
   	state: TOEKENDATA;
@@ -20,8 +19,18 @@ interface Func {
   	login: Function;
 }
 
-class App extends Component<RouteComponentProps & Props> {
+type Props = RouteComponentProps & ownProps;
+
+class App extends Component<Props> {
 	readonly state = this.props.state;
+
+	componentWillUpdate(nextProps: Props, nextState: State) {
+		this.props.history.listen(e => {
+			console.info(e, 'user');
+		})
+		console.info('props', nextProps);
+		console.info('state', nextState);
+	}
 
 	public async login() {
 		console.info('loading');

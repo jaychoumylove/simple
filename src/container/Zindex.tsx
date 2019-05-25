@@ -11,6 +11,11 @@ interface State {
     second: boolean
 }
 
+enum Num {
+    first = 'first',
+    second = 'second'
+}
+
 type No = "first" | "second"
 
 const Zindex = (props: ownProps): JSX.Element => {
@@ -37,7 +42,7 @@ const Zindex = (props: ownProps): JSX.Element => {
             <div className="container">
                 <p className="header">Hello, here is the first one.</p>
                 <div className="footer">
-                    <button className="left" onClick={() => toggle('second', true)}>show second</button>
+                    <button className="left" onClick={() => toggle("second", true)}>show second</button>
                     <button className="right" onClick={() => toggle('first', false)}>hide me</button>
                 </div>
             </div>
