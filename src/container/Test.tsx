@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { RouteComponentProps } from 'react-router';
 
 interface ownProps extends RouteComponentProps {

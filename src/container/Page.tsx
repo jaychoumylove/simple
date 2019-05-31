@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
-import BackHandle from '../component/hoc/Hoc';
-import { RouteComponentProps } from 'react-router';
+import { RouteComponentProps, Prompt } from 'react-router';
+import { Location } from 'history';
 
 export default class Page extends Component<RouteComponentProps> {
+	constructor(props: RouteComponentProps) {
+		super(props);
+		this.comfirmLeave = this.comfirmLeave.bind(this);
+	}
+
+	comfirmLeave(location: Location<any>):boolean | string {
+		return window.confirm(`confirm to leave to ${location.pathname}?`);
+	}
+
 	render() {
-		return (
+		return <>
+			<Prompt message={() => this.comfirmLeave(this.props.location)} when={false} />
 			<div className="App">
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
@@ -34,6 +44,6 @@ export default class Page extends Component<RouteComponentProps> {
 					</a>
 				</header>
 			</div>
-		);
+		</>;
 	}
 }
