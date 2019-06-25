@@ -1,27 +1,14 @@
 import React, { Component } from 'react';
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-import Home from './container/Home';
-import User from './container/User';
-import Page from './container/Page';
 import './util/axios';
-import Test from './container/Test';
-import Zindex from './container/Zindex';
+import Root from './router/Root';
 
 class App extends Component {
 	render() {
 		return (
 			<Provider store={store}>
-				<BrowserRouter>
-					<Switch>
-						<Route path="/user" component={User} />
-						<Route path="/page" component={Page} />
-						<Route path="/test" component={Test} />
-						<Route path="/zindex" component={Zindex} />
-						<Route component={Home} />
-					</Switch>
-				</BrowserRouter>
+				<Root />
 			</Provider>
 		);
 	}

@@ -7,6 +7,7 @@ import ROOTDATA from '../types/reducer';
 import Counter from '../component/R';
 import { RouteComponentProps } from 'react-router';
 import Axios from 'axios';
+import Leave from '../component/Leave';
 
 type ownProps = State & Func
 
@@ -24,23 +25,7 @@ type Props = RouteComponentProps & ownProps;
 class App extends Component<Props> {
 	readonly state = this.props.state;
 
-	componentWillUpdate(nextProps: Props, nextState: State) {
-		this.props.history.listen(e => {
-			console.info(e, 'user');
-		})
-		console.info('props', nextProps);
-		console.info('state', nextState);
-	}
-
 	public async login() {
-		console.info('loading');
-		// const mobile = '13263995262';
-		// const password = '123456';
-		// const res = await Axios.post('token/user', {
-		// 	mobile,
-		// 	password,
-		// 	is_third : ''
-		// });
 		const user = 'react';
 		const pwd  = 'react';
 		await Axios.post('user/login', {

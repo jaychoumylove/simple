@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import { RouteComponentProps } from 'react-router';
+import { Button, Icon } from 'antd';
 
 class App extends Component<RouteComponentProps> {
 	render() {
@@ -19,12 +20,13 @@ class App extends Component<RouteComponentProps> {
 					>
 						Learn React home
 					</a>
-					<a
-						className="App-link"
+					<Button 
+						type="link"
 						onClick={() => this.props.history.push('/page')}
 					>
-						go page
-					</a>
+						<Icon type="left" />
+						Page
+					</Button>
 					<a
 						className="App-link"
 						onClick={() => this.props.history.push('/user')}

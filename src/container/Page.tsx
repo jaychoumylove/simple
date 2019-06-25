@@ -15,7 +15,7 @@ export default class Page extends Component<RouteComponentProps> {
 
 	render() {
 		return <>
-			<Prompt message={() => this.comfirmLeave(this.props.location)} when={false} />
+			<Prompt message={() => this.comfirmLeave(this.props.location)} when={true} />
 			<div className="App">
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
