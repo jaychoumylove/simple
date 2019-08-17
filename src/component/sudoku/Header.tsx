@@ -16,17 +16,9 @@ const Header: SFC<OwnProps> = (props: OwnProps) => {
         return <Back />;
     }
 
-    const renderRight = () => {
-        return props.right;
-    }
-
     const { Header, Footer, Content } = Layout;
 
-    return <Layout>
-        <Header>Header</Header>
-        <Content>Content</Content>
-        <Footer>Footer</Footer>
-    </Layout>;
+    return null;
 }
 
 export default Header;

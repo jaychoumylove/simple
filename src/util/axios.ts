@@ -5,12 +5,12 @@ import axios, {
 	CancelTokenSource
 } from 'axios';
 import conf from './config';
-import { _ReponseError, _ResponseData, ECONNABORTED } from '../types/axios';
+import { _ResponseError, _ResponseData, ECONNABORTED } from '../types/axios';
 
 export const source: CancelTokenSource = axios.CancelToken.source();
 
 const handleRequest = async (request: AxiosRequestConfig) => {
-	const token = await Promise.resolve('sjhso8379e723heduhi897y232ioe');
+	const token: string = await Promise.resolve('sjhso8379e723heduhi897y232ioe');
 	request.headers.token = token;
 	return request;
 };
@@ -23,7 +23,7 @@ const handleResponse = (response: AxiosResponse) => {
 	return response.data;
 };
 
-const handleResponseError = (error: _ReponseError) => {
+const handleResponseError = (error: _ResponseError) => {
 	const { response } = error;
 
 	const { data } = response;

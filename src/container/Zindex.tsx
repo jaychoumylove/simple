@@ -22,7 +22,7 @@ const Zindex = (props: ownProps): JSX.Element => {
     const initState: State = {
         first: false,
         second: false
-    }
+    };
 
     const [state, handleState] = useState(initState);
 

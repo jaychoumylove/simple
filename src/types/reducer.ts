@@ -1,5 +1,5 @@
-import { TOEKENDATA } from './actions/token';
+import { TOKEN_DATA } from './actions/token';
 
-export default interface ROOTDATA {
-    token: TOEKENDATA;
+export default interface ROOT_DATA {
+    token: TOKEN_DATA;
 }

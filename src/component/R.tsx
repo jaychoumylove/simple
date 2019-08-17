@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
-import ROOTDATA from '../types/reducer';
+import { default as ROOT_DATA } from '../types/reducer';
 
 interface OwnProps extends RouteComponentProps {
     initial: number;
@@ -40,6 +40,6 @@ const Counter: FunctionComponent<OwnProps> = (initState: OwnProps) => {
 };
 
 export default withRouter(connect(
-	(state: ROOTDATA) => state,
+	(state: ROOT_DATA) => state,
 	{}
 )(Counter));

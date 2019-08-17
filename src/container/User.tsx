@@ -2,17 +2,16 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import { connect } from 'react-redux';
 import { logout, login } from '../redux/token';
-import { TOEKENDATA } from '../types/actions/token';
-import ROOTDATA from '../types/reducer';
+import { TOKEN_DATA } from '../types/actions/token';
+import { default as ROOT_DATA } from '../types/reducer';
 import Counter from '../component/R';
 import { RouteComponentProps } from 'react-router';
 import Axios from 'axios';
-import Leave from '../component/Leave';
 
 type ownProps = State & Func
 
 interface State {
-  	state: TOEKENDATA;
+  	state: TOKEN_DATA;
 }
 
 interface Func {
@@ -23,16 +22,15 @@ interface Func {
 type Props = RouteComponentProps & ownProps;
 
 class App extends Component<Props> {
-	readonly state = this.props.state;
+	// readonly state = this.props.state;
 
-	public async login() {
+	async login() {
 		const user = 'react';
 		const pwd  = 'react';
 		await Axios.post('user/login', {
 			user,
 			pwd,
 		});
-
 		// this.props.login(mobile,password);
 	}
 
@@ -75,7 +73,7 @@ class App extends Component<Props> {
 }
 
 export default connect(
-	(state: ROOTDATA): State => {
+	(state: ROOT_DATA): State => {
 		return { state: state.token };
 	},
 	{ login, logout }

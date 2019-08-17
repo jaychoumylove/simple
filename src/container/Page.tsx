@@ -6,16 +6,16 @@ import { Location } from 'history';
 export default class Page extends Component<RouteComponentProps> {
 	constructor(props: RouteComponentProps) {
 		super(props);
-		this.comfirmLeave = this.comfirmLeave.bind(this);
+		this.confirmLeave = this.confirmLeave.bind(this);
 	}
 
-	comfirmLeave(location: Location<any>):boolean | string {
+	confirmLeave(location: Location<any>):boolean | string {
 		return window.confirm(`confirm to leave to ${location.pathname}?`);
 	}
 
 	render() {
 		return <>
-			<Prompt message={() => this.comfirmLeave(this.props.location)} when={true} />
+			<Prompt message={() => this.confirmLeave(this.props.location)} when={true} />
 			<div className="App">
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />

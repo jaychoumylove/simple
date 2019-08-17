@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { token } from './token';
-import ROOTDATA from '../types/reducer';
+import {default as ROOT_DATA} from '../types/reducer';
 
-const reducer = combineReducers<ROOTDATA>({ token });
+const reducer = combineReducers<ROOT_DATA>({ token });
 
 export default reducer;

@@ -1,14 +1,14 @@
-import React, { SFC, MouseEventHandler } from 'react'
+import React, { FunctionComponent, MouseEventHandler } from 'react'
 import { Button, Icon } from 'antd';
 import { withRouter, RouteComponentProps } from 'react-router';
 
 interface OwnProps extends RouteComponentProps {
 }
 
-const Back: SFC<OwnProps> = (props: OwnProps) => {
+const Back: FunctionComponent<OwnProps> = (props: OwnProps) => {
     const goBack = () => {
         props.history.goBack();
-    }
+    };
 
     return (
         <Button
@@ -18,6 +18,6 @@ const Back: SFC<OwnProps> = (props: OwnProps) => {
             <Icon type="left" />
         </Button>
     );
-}
+};
 
 export default withRouter(Back);
