@@ -1,7 +1,7 @@
 export const LOGIN: string = 'LOGIN';
 export const LOGOUT: string = 'LOGOUT';
 export interface TOKEN_DATA {
-    token: String;
+    token: string;
 }
 
 export interface LOGIN_ACTION {

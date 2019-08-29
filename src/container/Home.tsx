@@ -2,9 +2,14 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import { RouteComponentProps } from 'react-router';
 import { Button, Icon } from 'antd';
+import Test from '../component/Test';
 
 class App extends Component<RouteComponentProps> {
 	render() {
+		if (true) {
+			return <Test />
+		}
+
 		return (
 			<div className="App">
 				<header className="App-header">

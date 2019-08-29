@@ -1,4 +1,4 @@
-import React, { SFC, Component } from 'react';
+import React, { FunctionComponent, Component } from 'react';
 import { RouteComponentProps } from 'react-router';
 import Back from './Back';
 import { Layout } from 'antd';
@@ -9,7 +9,7 @@ interface OwnProps extends RouteComponentProps {
     title: string
 }
 
-const Header: SFC<OwnProps> = (props: OwnProps) => {
+const Header: FunctionComponent<OwnProps> = (props: OwnProps) => {
     const renderLeft = () => {
         if (props.left) return props.left;
 
@@ -19,6 +19,6 @@ const Header: SFC<OwnProps> = (props: OwnProps) => {
     const { Header, Footer, Content } = Layout;
 
     return null;
-}
+};
 
 export default Header;
