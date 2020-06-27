@@ -34,6 +34,34 @@ class App extends Component<Props> {
 		// this.props.login(mobile,password);
 	}
 
+	public async test() {
+		const user = {
+			mobile: '15512345679',
+			pwd: 123456
+		}
+		await Axios.post('token/user', user, {
+			baseURL: 'http://symfony.local/'
+		})
+		// await Axios.get('/person', {
+		// 	baseURL: 'http://api.laravel.local/person',
+		// });
+		// const res: any = await Axios.post('token/user', {
+		// 	mobile: '13263995262',
+		// 	password: '123456',
+		// 	is_third: 1
+		// }, {
+		// 	baseURL: 'http://api.piaopiao.com/v1/'
+		// });
+
+		// const { token } = res;
+		// await Axios.put('user/change_bind_mobile', user, {
+		// 	baseURL: 'http://api.piaopiao.com/v1/',
+		// });
+		// await Axios.post('v1/token/user', user, {
+		// 	baseURL: 'http://www.piaopiao.com/'
+		// })
+	}
+
 	public render() {
 		return (
 			<div className="App">
@@ -55,6 +83,11 @@ class App extends Component<Props> {
 						type="button"
 						onClick={() => this.login()}
 					>Login</button>
+					<button
+						className="App-link"
+						type="button"
+						onClick={() => this.test()}
+					>test</button>
 					<button
 						className="App-link"
 						type="button"

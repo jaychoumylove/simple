@@ -1,7 +1,7 @@
 /** about request config */
 // const host: string = 'http://api.piaopiao.com';
-const host: string = 'http://localhost';
-const port: number = 9091;
+const host: string = 'http://symfony.local';
+const port: number = 80;
 const baseUrl: string = host + '/';
 const version: string = 'v1/';
 const timeout: number = 7000;

@@ -6,6 +6,7 @@ import Page from '../container/Page';
 import Test from '../container/Test';
 import Zindex from '../container/Zindex';
 import Sudoku from '../container/Sudoku';
+import ObserveDom from '../container/ObserveDom';
 
 class Root extends Component {
 	render() {
@@ -15,6 +16,7 @@ class Root extends Component {
                     <Route path="/user" component={User} />
                     <Route path="/page" component={Page} />
                     <Route path="/test" component={Test} />
+                    <Route path="/observer" component={ObserveDom} />
                     <Route path="/zindex" component={Zindex} />
                     <Route path='/sudoku' component={Sudoku} />
                     <Route component={Home} />

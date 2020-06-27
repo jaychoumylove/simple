@@ -14,7 +14,7 @@ const Header: FunctionComponent<OwnProps> = (props: OwnProps) => {
         if (props.left) return props.left;
 
         return <Back />;
-    }
+    };
 
     const { Header, Footer, Content } = Layout;
 
