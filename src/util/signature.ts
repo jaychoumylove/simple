@@ -114,5 +114,6 @@ export const paramsMd5 = (data: Object, once: number, time: number, char: string
         searchParameters = Object.keys(ordered).map(k => esc(k) + '=' + esc(ordered[k])).join('&').toString();
 
     console.info(searchParameters);
+    console.info(11);
     return MD5(searchParameters + char);
 };
