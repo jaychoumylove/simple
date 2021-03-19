@@ -37,8 +37,6 @@ const handleRequest = async (request: AxiosRequestConfig) => {
   request.headers.time = time;
   request.headers.parameter = parameter;
 
-  console.info(request.headers);
-
   return request;
 };
 
@@ -52,22 +50,23 @@ const handleResponse = (response: AxiosResponse) => {
 
 const handleResponseError = (error: _ResponseError) => {
   const { response } = error;
-  console.info(error);
-  console.info(response);
+  if (!response) {
+    return Promise.reject(error);
+  }
 
   const { data } = response;
 
-  if (data as _ResponseData) {
+  if (data && (data as _ResponseData)) {
     return data;
-  } else {
-    switch (error.code) {
-      case ECONNABORTED:
-        Promise.reject(error);
-        break;
-      default:
-        Promise.reject(error);
-        break;
-    }
+  }
+
+  switch (error.code) {
+    case ECONNABORTED:
+      Promise.reject(error);
+      break;
+    default:
+      Promise.reject(error);
+      break;
   }
 };
 

@@ -13,6 +13,7 @@ import Zindex from "../container/Zindex";
 import Sudoku from "../container/Sudoku";
 import ObserveDom from "../container/ObserveDom";
 import LoadingPage from "../container/LoadingPage";
+import TestRouter from "./TestRouter";
 
 class Root extends Component {
   render() {
@@ -23,12 +24,14 @@ class Root extends Component {
             path="/user"
             component={(props: RouteComponentProps) => <User {...props} />}
           />
-          <Route path="/page" component={Page} />
-          <Route path="/test" component={Test} />
-          <Route path="/observer" component={ObserveDom} />
-          <Route path="/zindex" component={Zindex} />
-          <Route path="/sudoku" component={Sudoku} />
-          <Route path="/loading" component={LoadingPage} />
+          <Route
+            path="/test"
+            // @ts-ignore
+            render={(prop) => (
+              //@ts-ignore
+              <TestRouter path={prop.match.path} />
+            )}
+          />
           <Route component={Home} />
         </Switch>
       </BrowserRouter>
