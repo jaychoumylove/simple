@@ -8,6 +8,7 @@ import ObserveDom from "../container/ObserveDom";
 import LoadingPage from "../container/LoadingPage";
 import { Switch } from "react-router-dom";
 import Subpub from "../container/test/Subpub";
+import ClearFloat from "../container/test/ClearFloat";
 
 class TestRouter extends PureComponent {
   render() {
@@ -22,6 +23,7 @@ class TestRouter extends PureComponent {
         <Route path={path + "/sudoku"} component={Sudoku} />
         <Route path={path + "/loading"} component={LoadingPage} />
         <Route path={path + "/subpub"} component={Subpub} />
+        <Route path={path + "/clear_float"} component={ClearFloat} />
       </Switch>
     );
   }

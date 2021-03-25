@@ -75,8 +75,12 @@ class ObserveDom extends React.Component<OwnProps> {
     return (
       <div id="content">
         <header>
-          <Button onClick={this.addElement}>Add Element</Button>
-          <Button onClick={this.removeElement}>Remove Element</Button>
+          <Button type="primary" onClick={this.addElement}>
+            Add Element
+          </Button>
+          <Button type="link" onClick={this.removeElement}>
+            Remove Element
+          </Button>
         </header>
       </div>
     );
