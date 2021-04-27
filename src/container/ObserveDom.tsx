@@ -1,7 +1,8 @@
-import React from "react";
-import { Button } from "antd";
+import React, { MouseEventHandler } from "react";
+import { Button, Input, Space } from "antd";
 import { RouteComponentProps } from "react-router-dom";
 import Axios from "axios";
+import { debounce, throttle } from "../util/Util";
 
 interface OwnProps extends RouteComponentProps {
   observer: MutationObserver | null;
@@ -11,11 +12,48 @@ let observer: any = null,
   content: any;
 
 class ObserveDom extends React.Component<OwnProps> {
+  hhandleChangeB: Function | any;
   constructor(props: OwnProps) {
     super(props);
+
     this.addElement = this.addElement.bind(this);
     this.removeElement = this.removeElement.bind(this);
+    // debounce && throttle
+    this.removeElement = debounce(this.removeElement, 1000);
+    this.addElement = throttle(this.addElement, 1000);
     console.log(props);
+    this.state = {
+      value: "",
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.hhandleChangeB = debounce(this.handleChange, 2000);
+    this.handleo = this.handleo.bind(this);
+    // this.hhandleChangeB(1);
+  }
+
+  handleChange(e: any | Event) {
+    if (!e.target) {
+      console.log(e.target);
+      return;
+    }
+
+    console.log(e.target.value);
+
+    this.setState({
+      value: e.target.value,
+    });
+  }
+
+  handleo(e: any | Event) {
+    e.persist();
+    e.preventDefault();
+    e.stopPropagation();
+    this.setState({
+      value: e.target.value,
+    });
+
+    this.hhandleChangeB(e);
   }
 
   componentDidMount() {
@@ -53,7 +91,7 @@ class ObserveDom extends React.Component<OwnProps> {
       content = document.getElementById("content");
   }
 
-  addElement() {
+  addElement(e: any) {
     const child = document.createElement("div");
     child.classList.add("item");
     Object.keys(itemStyle).map(function (item: any) {
@@ -63,7 +101,7 @@ class ObserveDom extends React.Component<OwnProps> {
     content.appendChild(child);
   }
 
-  removeElement() {
+  removeElement(e: any) {
     const child = document.getElementsByClassName("item");
     if (child.length) {
       let item: any = child.item(child.length - 1);
@@ -75,12 +113,17 @@ class ObserveDom extends React.Component<OwnProps> {
     return (
       <div id="content">
         <header>
-          <Button type="primary" onClick={this.addElement}>
-            Add Element
-          </Button>
-          <Button type="link" onClick={this.removeElement}>
-            Remove Element
-          </Button>
+          <Space>
+            <Button type="primary" onClick={this.addElement}>
+              Add Element
+            </Button>
+            <Button type="link" onClick={this.removeElement}>
+              Remove Element
+            </Button>
+
+            <Input defaultValue="thr" onChange={this.handleo} />
+            <Input defaultValue="deb" onChange={this.handleChange} />
+          </Space>
         </header>
       </div>
     );
