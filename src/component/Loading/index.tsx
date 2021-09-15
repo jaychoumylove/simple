@@ -1,13 +1,15 @@
 import React from "react";
 import "./index.less";
 import { LoadingOne } from "./1";
+import { LoadingTwo } from "./2";
 
 export type ILoadingProps = {};
 
 const Loading: React.FC<ILoadingProps> = ({}) => {
   return (
     <div className="loading-container">
-      <LoadingOne />
+      {/* <LoadingOne /> */}
+      <LoadingTwo />
       {/* <div
         className="loading"
         style={{
