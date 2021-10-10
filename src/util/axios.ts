@@ -70,8 +70,8 @@ const handleResponseError = (error: _ResponseError) => {
   }
 };
 
-// axios.defaults.baseURL = conf.baseUrl + conf.version;
-axios.defaults.baseURL = conf.host + ":" + conf.port + "/";
+axios.defaults.baseURL = conf.baseUrl + conf.version;
+// axios.defaults.baseURL = conf.host + ":" + conf.port + "/";
 axios.defaults.timeout = conf.timeout;
 // axios.defaults.cancelToken = cancel; // It's not necessary for default。
 axios.defaults.validateStatus = (status: number) =>

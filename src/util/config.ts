@@ -1,17 +1,19 @@
 /** about request config */
 // const host: string = 'http://api.piaopiao.com';
-const host: string = 'http://symfony.local';
+// const host: string = "http://localhost:8000";
+const host: string = "http://symfony.local";
 const port: number = 80;
-const baseUrl: string = host + '/';
-const version: string = 'v1/';
+// const port: number = 80;
+const baseUrl: string = host + "/";
+const version: string = "v1/";
 const timeout: number = 7000;
 const redirects: number = 3;
 
 export default {
-	baseUrl,
-	version,
-	timeout,
-	redirects,
-	host,
-	port,
+  baseUrl,
+  version,
+  timeout,
+  redirects,
+  host,
+  port,
 };
